@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>submission Form </title>
+  <style>
+   body{
+      background-color:#669999;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container{
+      width:50%;
+      margin: 0 auto;
+      padding: 5px;
+      border: 1px solid #fff;
+    }
+
+    .form-container h1{
+      font-size: 18px;
+      text-align: center;
+    }
+    
+    .form-container #agecheckerForm label{ 
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .form-container #agecheckerForm input[type="text"]{
+      width:90%;
+      padding: 15px;
+      margin: 10px auto;
+    }
+
+
+    .form-container #agecheckerForm #submit_btn{
+      font-size: 18px;
+      width: 200px;
+      padding:10px ;
+      border-radius: 10px;
+      border:1px solid #fff;
+      background-color:transparent;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+ <div class="form-container">
+  <h1>AGE CHECKER</h1>
+  <form id="agecheckerForm">
+    <div>
+    <label for="year">year:</label><br>
+    <input type="Number" id="year" name="year"placeholder="Enter year" ><br>
+    <button type="submit" id="submit_btn">submit</button>
+    <p id ="ageForm"></p>
+  </form>
+ </div>
+  <script type='text/javascript'>
+ 
+    document.getElementById("agecheckerForm").addEventListener("submit", submitfn);
+
+    function submitfn(e){
+      e.preventDefault();
+    let year = parseInt(document.querySelector("#year").value);    
+    let age = 2022 - year;
+      if(age>=18 && age<35){
+        document.getElementById("ageForm").innerHTML=`you are a young person`;
+      }else if(age>35){
+        document.getElementById("ageForm").innerHTML=`you are an adult`;
+      }else{
+        document.getElementById("ageForm").innerHTML=`you are still young`;
+      }
+    
+    }
+  
+
+  </script>
+</body>
+</html> 
